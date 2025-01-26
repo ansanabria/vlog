@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import ProfileImage from '../assets/profile.png'
+---
+
+<header>
+  <nav class="flex justify-between pt-10 items-center">
+    <a
+      href="/"
+      class="flex gap-x-3 items-center hover:scale-105 hover:opacity-80 transition-all"
+    >
+      <Image
+        src={ProfileImage}
+        alt="Andrés Sanabria profile picture"
+        class="w-8 h-8 rounded-full"
+      />
+      <h1 class="text-xl font-black text-accent">Andrés Sanabria</h1>
+    </a>
+    <div class="flex items-center gap-x-2">
+      <a
+        href="https://x.com/ansanabria__"
+        target="_blank"
+        rel="noreferrer noopener"
+        class="hover:scale-110 hover:opacity-80 transition-all"
+      >
+        <Icon name="prime:twitter" size={26} />
+      </a>
+      <a
+        href="https://github.com/ansanabria"
+        target="_blank"
+        rel="noreferrer noopener"
+        class="hover:scale-110 hover:opacity-80 transition-all"
+      >
+        <Icon name="prime:github" size={39} />
+      </a>
+    </div>
+  </nav>
+</header>
