@@ -6,8 +6,15 @@ import Header from "../components/Header.astro";
 
 // Layouts
 import Root from "../layouts/Root.astro";
+import { parseSpanishDate } from "../utils";
 
 const posts = await getCollection("posts");
+posts.sort(
+  (prev, current) =>
+    parseSpanishDate(current.data.date).getTime() -
+    parseSpanishDate(prev.data.date).getTime(),
+);
+
 const title = "Andrés Sanabria";
 ---
 
