@@ -1,7 +1,7 @@
 ---
-import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
-import ProfileImage from '../assets/profile.png'
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import ProfileImage from "../assets/profile.png";
 ---
 
 <header>
@@ -12,8 +12,9 @@ import ProfileImage from '../assets/profile.png'
     >
       <Image
         src={ProfileImage}
-        alt="Andrés Sanabria profile picture"
+        alt="Andrés Sanabria"
         class="w-8 h-8 rounded-full"
+        loading="eager"
       />
       <h1 class="text-xl font-black text-accent">Andrés Sanabria</h1>
     </a>
@@ -23,6 +24,7 @@ import ProfileImage from '../assets/profile.png'
         target="_blank"
         rel="noreferrer noopener"
         class="hover:scale-110 hover:opacity-80 transition-all"
+        aria-label="x.com"
       >
         <Icon name="prime:twitter" size={26} />
       </a>
@@ -31,6 +33,7 @@ import ProfileImage from '../assets/profile.png'
         target="_blank"
         rel="noreferrer noopener"
         class="hover:scale-110 hover:opacity-80 transition-all"
+        aria-label="github"
       >
         <Icon name="prime:github" size={39} />
       </a>

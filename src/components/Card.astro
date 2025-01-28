@@ -1,12 +1,17 @@
 ---
-type KeyProps = 'title' | 'date' | 'description' | 'url'
-type Props = Record<KeyProps, string>
+import type { CollectionEntry } from "astro:content";
 
-const { title, date, description, url }: Props = Astro.props
+interface Props {
+  id: string;
+  data: CollectionEntry<"posts">["data"];
+}
+
+const { id, data } = Astro.props as Props;
+const { title, date, description } = data;
 ---
 
 <a
-  href={url}
+  href={`/${id}`}
   class="flex flex-col gap-y-1 hover:scale-[1.02] transition-transform"
 >
   <h2 class="text-3xl font-bold">{title}</h2>

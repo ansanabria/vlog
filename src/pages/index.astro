@@ -1,52 +1,23 @@
 ---
 // Components
-import { getCollection } from 'astro:content'
-import Card from '../components/Card.astro'
-import Header from '../components/Header.astro'
+import { getCollection } from "astro:content";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
 
 // Layouts
-import Root from '../layouts/Root.astro'
+import Root from "../layouts/Root.astro";
 
-const title = 'Andrés Sanabria'
-
-const posts = await getCollection('posts')
+const posts = await getCollection("posts");
+const title = "Andrés Sanabria";
 ---
 
 <Root title={title}>
   <Header />
   <div class="my-16 flex flex-col gap-y-12">
-    <!-- {posts.map((post) => {
-      return <Card title={post} />
-    })} -->
-    <Card
-      title="Some silly title"
-      date="random"
-      description="hehehehe"
-      url="/some-silly-title"
-    />
-    <Card
-      title="Some silly title"
-      date="random"
-      description="hehehehe"
-      url="/some-silly-title"
-    />
-    <Card
-      title="Some silly title"
-      date="random"
-      description="hehehehe"
-      url="/some-silly-title"
-    />
-    <Card
-      title="Some silly title"
-      date="random"
-      description="hehehehe"
-      url="/some-silly-title"
-    />
-    <Card
-      title="Some silly title"
-      date="random"
-      description="hehehehe"
-      url="/some-silly-title"
-    />
+    {
+      posts.map((post) => {
+        return <Card id={post.id} data={post.data} />;
+      })
+    }
   </div>
 </Root>

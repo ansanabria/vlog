@@ -1,10 +1,24 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
 import Root from "./Root.astro";
+import Header from "../components/Header.astro";
 
+interface Props {
+  data: CollectionEntry<"posts">["data"];
+}
 
-const { post } = Astro.props
+const { data } = Astro.props as Props;
+const { title, date } = data;
 ---
 
-<Root>
-  
+<Root title={title}>
+  <Header />
+  <div class="mt-14">
+    <h1 class="text-4xl font-bold">{title}</h1>
+    <p class="text-gray-400 mt-4">{date}</p>
+    <div class="prose prose-invert mt-8 mb-28 text-textLight text-lg">
+      <slot />
+    </div>
+  </div>
 </Root>
