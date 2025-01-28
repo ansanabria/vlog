@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/inter";
+import Analytics from "@vercel/analytics/astro";
 
 const { title } = Astro.props;
 ---
@@ -25,5 +26,6 @@ const { title } = Astro.props;
     <div class="max-w-screen-sm mx-auto px-4">
       <slot />
     </div>
+    <Analytics />
   </body>
 </html>
